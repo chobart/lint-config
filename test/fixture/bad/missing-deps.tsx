@@ -5,5 +5,13 @@ export function Title({ name }: { name: string }) {
   useEffect(() => {
     document.title = name;
   }, []);
-  return <h1 onClick={() => { setTitle(name); }}>{title}</h1>;
+  return (
+    <h1
+      onClick={() => {
+        setTitle(name);
+      }}
+    >
+      {title}
+    </h1>
+  );
 }

@@ -9,7 +9,7 @@ const config = {
   trailingComma: "all",
   printWidth: 120,
   endOfLine: "auto",
-  importOrder: ["^react$", "^@(.*)|^[aA-zZ](.*)", "^[.|~]/(.*)"],
+  importOrder: ["^react$", "^@(.*)|^[aA-zZ](.*)", "^(\\.{1,2}|~)/(.*)"],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
 };
