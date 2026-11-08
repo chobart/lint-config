@@ -8,7 +8,12 @@
     ".": "./eslint.config.js",
     "./prettier": "./prettier.config.js"
   },
+  "bin": {
+    "chobart-lint": "./bin/chobart-lint.js",
+    "chobart-format": "./bin/chobart-format.js"
+  },
   "files": [
+    "bin",
     "eslint.config.js",
     "prettier.config.js"
   ],

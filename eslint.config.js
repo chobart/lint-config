@@ -1,18 +1,17 @@
 // Wspólna konfiguracja ESLint (flat config) dla repo JS/TS.
 // Repo aplikacji: `export { default } from "@chobart/lint-config";` w eslint.config.js w roocie.
 // Bramka uruchamia ESLint z tym plikiem przez `-c`, więc zmiany w konfiguracji repo nie osłabiają reguł.
-import { existsSync } from "node:fs";
-import path from "node:path";
-
 import comments from "@eslint-community/eslint-plugin-eslint-comments";
 import { includeIgnoreFile } from "@eslint/compat";
 import js from "@eslint/js";
-import { defineConfig } from "eslint/config";
 import prettier from "eslint-config-prettier/flat";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
+import { defineConfig } from "eslint/config";
 import globals from "globals";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import tseslint from "typescript-eslint";
 
 // Repo jest katalogiem, z którego uruchamia się ESLint (skrypt `lint` w roocie albo bramka).
@@ -40,7 +39,8 @@ function warnToError(configs) {
     const rules = Object.fromEntries(
       Object.entries(config.rules).map(([name, setting]) => {
         if (setting === "warn" || setting === 1) return [name, "error"];
-        if (Array.isArray(setting) && (setting[0] === "warn" || setting[0] === 1)) return [name, ["error", ...setting.slice(1)]];
+        if (Array.isArray(setting) && (setting[0] === "warn" || setting[0] === 1))
+          return [name, ["error", ...setting.slice(1)]];
         return [name, setting];
       }),
     );

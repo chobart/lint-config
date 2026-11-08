@@ -1,10 +1,9 @@
 // Ustawienia Prettiera: cudzysłowy, przecinki, kolejność importów i klas Tailwinda.
+import config from "../prettier.config.js";
+
 import assert from "node:assert/strict";
 import { test } from "node:test";
-
 import * as prettier from "prettier";
-
-import config from "../prettier.config.js";
 
 const input = `import { helper } from './local'
 import React from 'react'

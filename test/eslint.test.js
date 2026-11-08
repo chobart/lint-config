@@ -38,9 +38,7 @@ function runEslint() {
   });
   assert.ok(run.stdout, `ESLint nie zwrócił wyniku: ${run.stderr}`);
   const results = JSON.parse(run.stdout);
-  return new Map(
-    results.map((result) => [path.relative(fixtureDir, result.filePath), result.messages]),
-  );
+  return new Map(results.map((result) => [path.relative(fixtureDir, result.filePath), result.messages]));
 }
 
 const messagesByFile = runEslint();
