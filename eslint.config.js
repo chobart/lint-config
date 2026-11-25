@@ -54,8 +54,6 @@ const baseConfigs = [
     ignores: ["**/node_modules/", "**/build/", "**/dist/", "**/coverage/", "**/.react-router/", "**/.vercel/"],
   },
   ...(existsSync(gitignorePath) ? [includeIgnoreFile(gitignorePath, "chobart/gitignore")] : []),
-  // Tylko w roocie repo. Ta sama lista w bin/chobart-format.js. Po .gitignore, żeby repo nie mogło cofnąć wpisem `!ios/`.
-  { name: "chobart/ignores-ios-github", ignores: ["ios/", ".github/"] },
   {
     name: "chobart/linter-options",
     linterOptions: {
