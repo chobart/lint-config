@@ -10,7 +10,7 @@ Wspólna konfiguracja ESLint i Prettier dla repo JS/TS. Repo aplikacji nie zmien
    ```
 2. Instalacja w roocie (w monorepo: w roocie, nie w workspace):
    ```
-   npm install -D github:chobart/lint-config#v1.0.0
+   npm install -D github:chobart/lint-config#v1.1.0
    ```
 3. `eslint.config.js` w roocie, dokładnie jedna linia (dla edytora):
    ```js
@@ -34,14 +34,14 @@ Wymagania: Node `>=20.9`, TypeScript `>=5.0 <6.1` w repo (typy sprawdza TypeScri
 - `chobart-lint [ścieżki] [--fix] [--format=…] [--cache]` – ESLint z konfiguracją pakietu, `--max-warnings 0`, domyślnie `.`.
 - `chobart-format [ścieżki] [--check | --write | --list-different]` – Prettier z konfiguracją pakietu, domyślnie `--check .`.
 
-Obie uruchamiają ESLint i Prettier w wersjach z tego pakietu, niezależnie od tego, co jest w repo. Inne flagi są odrzucane.
+Obie uruchamiają ESLint i Prettier w wersjach z tego pakietu, niezależnie od tego, co jest w repo. Inne flagi są odrzucane. `chobart-format` odrzuca ścieżki bezwzględne i z `..`. Uruchamiać z roota repo: ignorowanie `ios/` i `.github/` liczy się od katalogu uruchomienia.
 
 ## Zasady
 
 - Każda reguła jest błędem albo jest wyłączona; ostrzeżeń nie ma.
 - TypeScript: `typescript-eslint` `strictTypeChecked`. React i hooks: `recommended`. Dostępność: `jsx-a11y` `recommended`.
 - Prettier: podwójne cudzysłowy, szerokość 120, przecinki na końcu, sortowanie importów, sortowanie klas Tailwinda (domyślny motyw Tailwind 4).
-- Ignorowane: `.gitignore` repo oraz `build/`, `dist/`, `coverage/`, `.react-router/`, `.vercel/`.
+- Ignorowane: `.gitignore` repo oraz `build/`, `dist/`, `coverage/`, `.react-router/`, `.vercel/`; w roocie repo także `ios/` i `.github/`.
 
 ## Wyjątki
 
