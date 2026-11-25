@@ -10,7 +10,7 @@ Wspólna konfiguracja ESLint i Prettier dla repo JS/TS. Repo aplikacji nie zmien
    ```
 2. Instalacja w roocie (w monorepo: w roocie, nie w workspace):
    ```
-   npm install -D github:chobart/lint-config#v1.0.0
+   npm install -D github:chobart/lint-config#v1.0.1
    ```
 3. `eslint.config.js` w roocie, dokładnie jedna linia (dla edytora):
    ```js

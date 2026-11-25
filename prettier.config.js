@@ -1,9 +1,16 @@
 // Wspólna konfiguracja Prettiera. Repo aplikacji: `"prettier": "@chobart/lint-config/prettier"` w package.json.
 // Ustawienia jak w .prettierrc screendoga; prettier-plugin-tailwindcss musi być ostatni (wymóg pluginu).
 // Bez `tailwindStylesheet`: plugin sortuje według domyślnego motywu Tailwind 4.
+import { fileURLToPath } from "node:url";
+
+// Prettier szuka pluginów podanych z nazwy od katalogu uruchomienia, czyli w repo aplikacji. Pełna ścieżka wskazuje pakiet.
+function pluginPath(name) {
+  return fileURLToPath(import.meta.resolve(name));
+}
+
 /** @type {import("prettier").Config} */
 const config = {
-  plugins: ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  plugins: [pluginPath("@trivago/prettier-plugin-sort-imports"), pluginPath("prettier-plugin-tailwindcss")],
   bracketSpacing: true,
   singleQuote: false,
   trailingComma: "all",
