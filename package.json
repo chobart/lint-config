@@ -1,6 +1,6 @@
 {
   "name": "@chobart/lint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Wspólna konfiguracja ESLint i Prettier dla repo JS/TS Barta",
   "license": "MIT",
   "type": "module",
